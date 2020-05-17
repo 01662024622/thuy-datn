@@ -28,7 +28,7 @@
 									
 									<ul class="dropdown-menu agile_short_dropdown">
 										<li><a data-toggle="modal" href='#myModal1'>Gửi Yêu Cầu Truyện</a></li>
-										<li>@if(Auth::user()->isadmin == '1')
+										<li>@if(Auth::user()->isadmin != 0)
 										<a href="{{ route('book.index') }}">Về Trang Quản Trị</a>
 										@endif</li>
 										<li><a href="{{ route('logout') }}"

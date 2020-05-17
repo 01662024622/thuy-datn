@@ -22,7 +22,7 @@ class bookController extends Controller
 */
 public function index()
 {
-    if (Auth::user()->isadmin=1) {
+    if (Auth::user()->isadmin==1) {
         
     }
 $dsbook = book::where('uploadby',Auth::id())->get();
