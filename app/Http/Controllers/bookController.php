@@ -25,7 +25,7 @@ public function index()
     if (Auth::user()->isadmin=1) {
         
     }
-$dsbook = book::where('author',Auth::id())->get();
+$dsbook = book::where('uploadby',Auth::id())->get();
 // dd($dskhoa);
 return view('Admin.book.index')->with('dsbook',$dsbook);
 }
