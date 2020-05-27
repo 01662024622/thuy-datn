@@ -32,7 +32,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 	Route::resource('chap', 'chapController')->middleware(['isadmin','verified']);
 	Route::resource('tag', 'tagController')->middleware(['isadmin','verified']);
 
-	Route::resource('home', 'webController')->middleware('verified');;
+	Route::resource('home', 'webController');
 	Route::resource('comment', 'commentController');
 	Route::resource('follow', 'followController');
 	Route::resource('request', 'requestController');
