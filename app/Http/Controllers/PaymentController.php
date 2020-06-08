@@ -7,6 +7,9 @@ use App\book;
 use App\chap;
 use App\tag;
 use App\category;
+use App\Order;
+use App\Bill;
+use App\User;
 use Validator;
 use Illuminate\Support\Facades\Input;
 use Webpatser\Uuid\Uuid;
@@ -27,8 +30,8 @@ class PaymentController extends Controller
 	public function index()
 	{
 		$dscate = DB::table('category')->where('active', '=', 1)->get();
-        $dsbook = DB::table('book')->where('active', '=', 1)->paginate(3);
-        return view('payment.index')->with('dscate', $dscate)->with('dsbook', $dsbook);
+		$dsbook = DB::table('book')->where('active', '=', 1)->paginate(3);
+		return view('payment.index')->with('dscate', $dscate)->with('dsbook', $dsbook);
 	}
 	public function payment(Request $request){
 		$vnp_TxnRef = $request->order_id; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
@@ -82,14 +85,61 @@ class PaymentController extends Controller
 			, 'data' => $this->vnp_Url);
 
 		// echo json_encode($returnData);
-return redirect($returnData['data']);
+		return redirect($returnData['data']);
 		// header("Location: ".$returnData['data']);
 	}
-	public function vnpayreturn()
+	public function vnpayreturn(Request $request)
 	{
+		$vnp_SecureHash = $request->vnp_SecureHash;
+		$inputData = array();
+		foreach ($request->all() as $key => $value) {
+			if (substr($key, 0, 4) == "vnp_") {
+				$inputData[$key] = $value;
+			}
+		}
+		unset($inputData['vnp_SecureHashType']);
+		unset($inputData['vnp_SecureHash']);
+		$amount=$inputData['vnp_Amount']/100;
+		ksort($inputData);
+		$i = 0;
+		$hashData = "";
+		foreach ($inputData as $key => $value) {
+			if ($i == 1) {
+				$hashData = $hashData . '&' . $key . "=" . $value;
+			} else {
+				$hashData = $hashData . $key . "=" . $value;
+				$i = 1;
+			}
+		}
+
+//$secureHash = md5($vnp_HashSecret . $hashData);
+		$secureHash = hash('sha256',$this->vnp_HashSecret . $hashData);
+		$id=$inputData['vnp_TxnRef'].Auth::id();
+		// return $id;
+		$order = Bill::find($id);
+
+		if ($secureHash == $vnp_SecureHash&&$order==null) {
+			if ($request->vnp_ResponseCode== '00') {
+				$inputData['responStatus']= "GD Thanh cong";
+				$data['id']=$inputData['vnp_TxnRef'].Auth::id();
+				$data['content']=$inputData['vnp_OrderInfo'];
+				$data['bank']=$inputData['vnp_BankCode'];
+				$data['transaction_no']=$inputData['vnp_TransactionNo'];
+				$data['amount']=$amount;
+				$data['user_id']=Auth::id();
+				Bill::create($data);
+				$user = User::find(Auth::id());
+				$user->amount=$user->amount+$amount;
+				$user->save();
+			} else {
+				$inputData['responStatus']= "GD Khong thanh cong";
+			}
+		} else {
+			$inputData['responStatus']= "Chu ky khong hop le";
+		}
 		$dscate = DB::table('category')->where('active', '=', 1)->get();
-        $dsbook = DB::table('book')->where('active', '=', 1)->paginate(3);
-        return view('payment.vnpayreturn')->with('dscate', $dscate)->with('dsbook', $dsbook);
+		$dsbook = DB::table('book')->where('active', '=', 1)->paginate(3);
+		return view('payment.vnpayreturn')->with('dscate', $dscate)->with('dsbook', $dsbook)->with('inputData',$inputData);
 		
 	}
 	public function audio($audio){

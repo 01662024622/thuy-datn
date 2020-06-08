@@ -86,7 +86,9 @@ class webController extends Controller
     {
         $book = book::find($id);
         $chaps = DB::table('book')->join('chap', 'book.id', '=', 'chap.idbook')
-                              ->where('book.id', $id)->get();
+                                ->join('orders','book.id','=','orders.book_id')
+                              ->where('book.id', $id)->where('orders.user_id',Auth::id())->get();
+                              // return $chaps;
         $tags = DB::table('tag')->join('book', 'book.id', '=', 'tag.idbook')
                                 ->join('category', 'category.id', '=', 'tag.categoryid')
                                 ->where('tag.idbook', $id)->get();

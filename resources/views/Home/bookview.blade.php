@@ -335,7 +335,7 @@
 						@endguest
 	  					</div>
 	
-
+						@if(count($chaps)>0)
 	  					<table class="table table-bordered">
 			              <thead>
 			                <tr>
@@ -364,6 +364,9 @@
 			                  @endforeach  
 			                  </tbody>
               			</table>
+              			@else
+							<button >Đặt nghe truyện 30 ngày</button>
+              			@endif
 
 	  					
 	  				</div>

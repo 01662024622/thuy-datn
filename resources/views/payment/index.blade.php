@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <label for="order_id">Mã hóa đơn</label>
-                        <input class="form-control" id="order_id" name="order_id" type="text" value="<?php echo date("YmdHis") ?>"/>
+                        <input class="form-control" id="order_id" name="order_id" type="text" value="<?php echo date("YmdHis") ?>{{Auth::id()}}"/>
                     </div>
                     <div class="form-group">
                         <label for="amount">Số tiền</label>
