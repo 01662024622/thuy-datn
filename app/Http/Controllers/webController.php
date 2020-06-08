@@ -46,7 +46,6 @@ class webController extends Controller
     public function searchBook(){
         $dscate = DB::table('category')->where('active', '=', 1)->get();
         $dsbook = DB::table('book')->where('active', '=', 1)->paginate(3);
-        $dscate = DB::table('category')->where('active', '=', 1)->get();
         // dd($dsbook);
         return view('Home.searchbook')->with('dsbook', $dsbook)->with('dscate', $dscate)->with('dscate', $dscate);
     }
