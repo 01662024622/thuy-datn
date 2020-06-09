@@ -44,6 +44,7 @@ Route::prefix("/")->middleware(['auth'])->group(function(){
 	Route::get('/payment', 'PaymentController@index');
 	Route::post('/payment/request', 'PaymentController@payment');
 	Route::get('/vnpay_return', 'PaymentController@vnpayreturn');
+	Route::get('/payment/book/{id}', 'PaymentController@paymentbook');
 	Route::get('/upload/audio/{audio}', 'PaymentController@audio');
 
 });

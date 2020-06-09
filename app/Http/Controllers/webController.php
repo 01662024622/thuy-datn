@@ -7,6 +7,7 @@ use App\book;
 use App\chap;
 use App\tag;
 use App\category;
+use App\Order;
 use Validator;
 use Illuminate\Support\Facades\Input;
 use Webpatser\Uuid\Uuid;
@@ -84,10 +85,16 @@ class webController extends Controller
      */
     public function show($id)
     {
+        $date = Carbon::today()->subDays(30);
         $book = book::find($id);
+
+        $order = Order::where('book_id',$book->id)->where('orders.created_at', '>=', date($date))->first();
         $chaps = DB::table('book')->join('chap', 'book.id', '=', 'chap.idbook')
                                 ->join('orders','book.id','=','orders.book_id')
-                              ->where('book.id', $id)->where('orders.user_id',Auth::id())->get();
+                                ->where('book.id', $id)->where('orders.user_id',Auth::id())
+                                ->where('orders.created_at', '>=', date($date))
+                                ->get();
+                                // return $chaps;
                               // return $chaps;
         $tags = DB::table('tag')->join('book', 'book.id', '=', 'tag.idbook')
                                 ->join('category', 'category.id', '=', 'tag.categoryid')
@@ -112,7 +119,7 @@ class webController extends Controller
             
         }
         //dd($comment);
-        return view('home.bookview')->with('comment', $comment)->with('dscate', $dscate)->with('follow', $follow)->with('chaps', $chaps)->with('book', $book)->with('tags', $tags);
+        return view('home.bookview')->with('comment', $comment)->with('dscate', $dscate)->with('follow', $follow)->with('chaps', $chaps)->with('book', $book)->with('tags', $tags)->with('order',$order);
     }
 
     /**

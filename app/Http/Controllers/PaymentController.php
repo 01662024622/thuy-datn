@@ -99,7 +99,7 @@ class PaymentController extends Controller
 		}
 		unset($inputData['vnp_SecureHashType']);
 		unset($inputData['vnp_SecureHash']);
-		$amount=$inputData['vnp_Amount']/100;
+		$amount=$inputData['vnp_Amount']/100000;
 		ksort($inputData);
 		$i = 0;
 		$hashData = "";
@@ -130,6 +130,7 @@ class PaymentController extends Controller
 				Bill::create($data);
 				$user = User::find(Auth::id());
 				$user->amount=$user->amount+$amount;
+				Auth::user()->amount=$user->amount;
 				$user->save();
 			} else {
 				$inputData['responStatus']= "GD Khong thanh cong";
@@ -139,6 +140,7 @@ class PaymentController extends Controller
 		}
 		$dscate = DB::table('category')->where('active', '=', 1)->get();
 		$dsbook = DB::table('book')->where('active', '=', 1)->paginate(3);
+		
 		return view('payment.vnpayreturn')->with('dscate', $dscate)->with('dsbook', $dsbook)->with('inputData',$inputData);
 		
 	}
@@ -147,4 +149,24 @@ class PaymentController extends Controller
 		// return redirect('http://localhost:8000/upload/audio/'.$audio);
 
 	}
+	public function paymentbook($id){
+		$user= User::find(Auth::id());
+		if ($user->amount<10) {
+			return response()->json([
+				'error' => 'Tài khoản của bạn không đủ tiền'], 422);
+		}
+	$date = Carbon::today()->subDays(30);
+	$order = Order::where('user_id',Auth::id())->where('book_id',$id)->where('created_at', '>=', date($date))->first();
+	if ($order==null) {
+		$data['user_id']=Auth::id();
+		$data['book_id']=$id;
+		Order::create($data);
+		$user->amount=$user->amount-10;
+		$user->save();
+		return "true";
+	}else{
+		return response()->json([
+			'error' => 'Thời gian mua sách của bạn vẫn hiệu lực'], 422);
+	}
+}
 }

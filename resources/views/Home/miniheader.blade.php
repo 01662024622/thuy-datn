@@ -23,10 +23,12 @@
 	                            <li class="menu__item menu__item"><a href="{{ route('register') }}" class="menu__link">Đăng Ký</a></li>
 	                        	@else
 								<li class="dropdown menu__item">
-									<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown">{{ Auth::user()->name }}<b class="caret"></b></a>
+									<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown">{{ Auth::user()->name }} ({{ Auth::user()->amount }} coint)<b class="caret"></b></a>
+									
 									<ul class="dropdown-menu agile_short_dropdown">
 										<li><a data-toggle="modal" href='#myModal1'>Gửi Yêu Cầu Truyện</a></li>
-										<li>@if(Auth::user()->isadmin == '1')
+										<li><a href='/payment'>Nạp Tiền</a></li>
+										<li>@if(Auth::user()->isadmin != 0)
 										<a href="{{ route('book.index') }}">Về Trang Quản Trị</a>
 										@endif</li>
 										<li><a href="{{ route('logout') }}"
