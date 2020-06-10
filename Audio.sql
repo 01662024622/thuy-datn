@@ -11,7 +11,7 @@
  Target Server Version : 100411
  File Encoding         : 65001
 
- Date: 09/06/2020 16:37:00
+ Date: 10/06/2020 16:22:07
 */
 
 SET NAMES utf8mb4;
@@ -68,7 +68,7 @@ CREATE TABLE `book`  (
 -- Records of book
 -- ----------------------------
 INSERT INTO `book` VALUES (41, '11cf7a00-f1c1-11e9-89dc-49b11daac938', '๖ۣۜNhư๖ۣۜ Ý♥๖ۣۜVô ๖ۣۜTà', 2, 'Thời La Mã Cổ Đại: Theo Chủ Nô Đến Chí Tôn Đại Đế', 5, '<p>Diệp Thi&ecirc;n mang theo mạnh nhất chủ n&ocirc; hệ thống xuy&ecirc;n việt thời La M&atilde; cổ đại.</p>\r\n\r\n<p>Lấy mạnh nhất chủ n&ocirc; th&acirc;n phận, ch&acirc;n đạp qua Krassu, đ&aacute;nh qua Pompey mặt, sờ đầu giết Caesar Đại Đế.</p>\r\n\r\n<p>Nguy&ecirc;n l&atilde;o viện bị trở th&agrave;nh hậu hoa vi&ecirc;n, Rome Tam cự đầu c&uacute;i đầu xưng thần, cao ngạo qu&yacute; tộc lấy quỳ h&ocirc;n Diệp Thi&ecirc;n mũi ch&acirc;n l&agrave;m vinh.</p>\r\n\r\n<p>Hậu thế chuy&ecirc;n gia khảo cổ th&ocirc;ng qua dấu vết để lại ph&aacute;t hiện, đ&atilde; từng nhất thống tam đại ch&acirc;u Ch&iacute; T&ocirc;n Đại Đế, đ&uacute;ng l&agrave; Rồng Ti&ecirc;n huyết mạch.</p>\r\n\r\n<p><strong>Converter</strong>: ๖ۣۜNhư๖ۣۜ &Yacute;&hearts;๖ۣۜV&ocirc; ๖ۣۜT&agrave;</p>\r\n\r\n<p><strong>Nguồn</strong>: truyencv</p>', 'la-ma-theo-chu-no-den-chi-ton-dai-de-poster-1556646923-220x330.jpg', 0, 2, '2019-10-20 16:30:14', 1);
-INSERT INTO `book` VALUES (44, 'c34b1920-f224-11e9-8e55-5d8b9400786a', 'ngontinh.tangthuvien', 2, 'Điền Viên Khuê Sự', 10, '<p>Xuy&ecirc;n qua đến n&ocirc;ng gia, n&agrave;o c&oacute; thể đo&aacute;n được cha mẹ trọng đại nam, Đại tẩu trong tay bảo.</p>\r\n\r\n<p>Chỉ c&oacute; n&agrave;ng, trong mắt mọi người một cọng cỏ.</p>\r\n\r\n<p>Lại nh&igrave;n n&agrave;ng, ngực c&oacute; khe r&atilde;nh</p>\r\n\r\n<p>D&ugrave; l&agrave; một cọng cỏ, cũng muốn trong vườn phải tự cường</p>\r\n\r\n<p>Kiếm Lương tế, tiến t&agrave;i bảo</p>\r\n\r\n<p>Sợi cỏ biến l&ograve; v&agrave;ng.</p>\r\n\r\n<p>Nguồn : ngontinh.tangthuvien</p>', '734AC836-1688-44B8-936E-869D5740286D.jpeg', 0, 1, '2019-10-20 16:30:09', 1);
+INSERT INTO `book` VALUES (44, 'c34b1920-f224-11e9-8e55-5d8b9400786a', 'ngontinh.tangthuvien', 2, 'Điền Viên Khuê Sự', 10, '<p>Xuy&ecirc;n qua đến n&ocirc;ng gia, n&agrave;o c&oacute; thể đo&aacute;n được cha mẹ trọng đại nam, Đại tẩu trong tay bảo.</p>\r\n\r\n<p>Chỉ c&oacute; n&agrave;ng, trong mắt mọi người một cọng cỏ.</p>\r\n\r\n<p>Lại nh&igrave;n n&agrave;ng, ngực c&oacute; khe r&atilde;nh</p>\r\n\r\n<p>D&ugrave; l&agrave; một cọng cỏ, cũng muốn trong vườn phải tự cường</p>\r\n\r\n<p>Kiếm Lương tế, tiến t&agrave;i bảo</p>\r\n\r\n<p>Sợi cỏ biến l&ograve; v&agrave;ng.</p>\r\n\r\n<p>Nguồn : ngontinh.tangthuvien</p>', '734AC836-1688-44B8-936E-869D5740286D.jpeg', 0, 3, '2019-10-20 16:30:09', 1);
 INSERT INTO `book` VALUES (46, 'e5c133d0-f225-11e9-a483-fb2856622ce6', 'Lâu Vũ Tình', 2, 'Thất Tịch Không Mưa', 20, '<p>Thất tịch: M&ugrave;ng 7 th&aacute;ng 7 &acirc;m lịch, ch&iacute;nh l&agrave; lễ Valentine của Trung Quốc. C&ocirc; sinh ng&agrave;y M&ugrave;ng 7 th&aacute;ng 7 - Ng&agrave;y Thất tịch.</p>\r\n\r\n<p>Từ nhỏ c&ocirc; đ&atilde; thầm y&ecirc;u anh, như số kiếp kh&ocirc;ng thể thay đổi&nbsp;t&igrave;nh y&ecirc;u&nbsp;trong s&aacute;ng ấy, như lần đầu được nếm m&ugrave;i vị của quả khế mới ch&iacute;n. Sau đ&oacute; c&ocirc; v&agrave; anh xa nhau, gặp lại đều c&aacute;ch nhau ba năm. 15 tuổi, anh l&ecirc;n ph&iacute;a bắc học, từ đ&oacute; mất li&ecirc;n lạc; 18 tuổi, c&ocirc; n&ocirc;ng nổi đi gặp anh, đổi lại l&agrave; sự đau l&ograve;ng; 21 tuổi, cuối c&ugrave;ng anh cũng quay về để chịu tang mẹ; 24 tuổi, anh kết h&ocirc;n, đưa người vợ mới cưới tới tận nơi xa. Anh từng l&agrave; thần hộ mệnh của c&ocirc;, dịu d&agrave;ng, cẩn thận che chở, bao dung. Đ&atilde; từng ngoắc tay với c&ocirc;, thề sẽ m&atilde;i m&atilde;i ở b&ecirc;n nhau. C&ocirc; c&oacute; thể mất đi tất cả, nhưng kh&ocirc;ng thể kh&ocirc;ng c&oacute; anh - người hiểu c&ocirc; nhất. Ng&agrave;y 7-7 l&agrave; ng&agrave;y gặp mặt của Ngưu Lang Chức Nữ, mưa ng&agrave;y 7-7 l&agrave; nước mắt của nỗi nhớ nhung vậy. Giờ c&ocirc; 27 tuổi, liệu c&oacute; thể c&oacute; một ng&agrave;y 7-7 kh&ocirc;ng mưa, để c&ocirc; được gặp lại anh một lần nữa...</p>', 'that-tich-khong-mua.jpg', 0, 1, '2019-10-19 11:06:59', 1);
 INSERT INTO `book` VALUES (47, '6f813cf0-f25f-11e9-a96a-033f37317a90', 'Voz', 2, 'Nhật ký phòng trọ ma', 24, '<p>Chào các bạn, m&igrave;nh t&ecirc;n là H (kh&ocirc;ng đ&ecirc;̉ đích danh vì m&ocirc;̣t vài lí do, mong các bạn thứ l&ocirc;̃i) m&igrave;nh 23t, truy&ecirc;̣n m&igrave;nh sắp k&ecirc;̉ nghe gi&ocirc;́ng m&ocirc;̣t c&acirc;u truy&ecirc;̣n&nbsp;ma, kì bí, kinh dị nhưng m&igrave;nh cũng chẳng rõ chính xác nó là cái gì nữa, m&igrave;nh chỉ chia sẻ l&ecirc;n đ&acirc;y như m&ocirc;̣t quy&ecirc;̉n nh&acirc;̣t kí tự thu&acirc;̣t của m&igrave;nh v&ecirc;̀ những ngày kinh hoàng mà m&igrave;nh vừa trải qua (có lẽ nó v&acirc;̃n còn ti&ecirc;́p di&ecirc;̃n) và nghĩ rằng chắc các bạn hứng thú với nó (vì m&igrave;nh nghĩ ai mà chẳng thích m&ocirc;̣t c&acirc;u truy&ecirc;̣n kì dị, ma quái sảy ra tr&ecirc;n chính đời thực và được k&ecirc;̉ lại bởi chính nh&acirc;n v&acirc;̣t trong c&acirc;u truy&ecirc;̣n!) còn chuy&ecirc;̣n tin hay kh&ocirc;ng là tuỳ bạn.</p>\r\n\r\n<p>Hi&ecirc;̣n giờ, tính từ ngày bắt đ&acirc;̀u dọn v&ocirc; căn phòng trọ &acirc;́y cũng được g&acirc;̀n 1 tu&acirc;̀n r&ocirc;̀i và m&igrave;nh đang khá r&ocirc;́i loạn v&ecirc;̀ t&acirc;m trí (cứ cho là gặp v&acirc;́n đ&ecirc;̀ v&ecirc;̀ th&acirc;̀n kinh) nhưng ít nh&acirc;́t nó cũng được coi là &ocirc;̉n so với những gì mà m&igrave;nh đã phải trải qua và có lẽ sẽ là bình thường với những gì sắp trải ra. B&acirc;y giờ m&igrave;nh sẽ k&ecirc;̉ cho các bạn nghe v&ecirc;̀ những ngày vừa r&ocirc;̀i và sẽ ti&ecirc;́p tục k&ecirc;̉ v&ecirc;̀ những gì đang sảy ra trong những update sau đó. Vozforums c&ugrave;ng sachvui.com hãy cùng đón nh&acirc;̣n những c&acirc;u truy&ecirc;̣n mà m&igrave;nh cho rằng bạn sẽ thích thú với nó...</p>', 'nhat-ky-phong-tro-ma.jpg', 0, 1, '2019-10-20 18:57:44', 1);
 INSERT INTO `book` VALUES (48, '77bc3f90-f29b-11e9-bef1-2b0e9365e7c5', '1', 2, '11111111111', 1, '<p>111111111</p>', '5n6sq31nn.jpg', 0, 0, '2019-10-20 19:01:07', 0);
@@ -179,12 +179,7 @@ CREATE TABLE `follow`  (
   INDEX `FK_follow_book`(`bookid`) USING BTREE,
   CONSTRAINT `FK_follow_book` FOREIGN KEY (`bookid`) REFERENCES `book` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_follow_users` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of follow
--- ----------------------------
-INSERT INTO `follow` VALUES (9, 3, 41, '2020-06-09 16:04:40', 1);
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for migrations
@@ -215,14 +210,7 @@ CREATE TABLE `orders`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_vietnamese_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of orders
--- ----------------------------
-INSERT INTO `orders` VALUES (1, 3, 10, 44, '2020-04-06 15:09:41', '2020-06-09 15:09:41');
-INSERT INTO `orders` VALUES (2, 3, 10, 41, '2020-05-06 15:10:51', '2020-06-09 15:10:51');
-INSERT INTO `orders` VALUES (3, 3, 10, 41, '2020-06-09 16:03:14', '2020-06-09 16:03:14');
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_vietnamese_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for password_resets
@@ -323,6 +311,6 @@ CREATE TABLE `users`  (
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (2, 'Admin', 'admin@gmail.com', '$2y$10$mdoFGxkbThkXicqf.Km.WOI4su.a1DjyKGfeOXGvgc3qgf2LiFeDO', NULL, 1, '2019-10-16 14:35:49', '2020-06-08 22:46:34', '2020-06-08 22:46:33', 0);
-INSERT INTO `users` VALUES (3, 'ABC', '123@gmail.com', '$2y$10$/w.ZYuvUaYwlAL3PyCp/G.APAakteuqzFChZwN7HSnd7ikJcHEP/6', NULL, 0, '2019-10-20 17:30:19', '2020-06-09 16:03:14', '2020-06-08 22:46:30', 1010);
+INSERT INTO `users` VALUES (3, 'ABC', 'vuthang.hustit@gmail.com', '$2y$10$/w.ZYuvUaYwlAL3PyCp/G.APAakteuqzFChZwN7HSnd7ikJcHEP/6', NULL, 0, '2019-10-20 17:30:19', '2020-06-10 16:01:36', NULL, 970);
 
 SET FOREIGN_KEY_CHECKS = 1;

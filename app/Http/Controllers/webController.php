@@ -88,7 +88,12 @@ class webController extends Controller
         $date = Carbon::today()->subDays(30);
         $book = book::find($id);
 
-        $order = Order::where('book_id',$book->id)->where('orders.created_at', '>=', date($date))->first();
+        $order = Order::where('book_id',$book->id)->where('created_at', '>=', date($date))->first();
+        if ($order!=null) {
+            # code...
+        $order->created_at=$order->created_at->addMonth();
+        }
+        // $order->created_at=Carbon::createFromFormat('Y-m-d H:i:s', $order->created_at->addMonth())->format('H d-m-Y');
         $chaps = DB::table('book')->join('chap', 'book.id', '=', 'chap.idbook')
                                 ->join('orders','book.id','=','orders.book_id')
                                 ->where('book.id', $id)->where('orders.user_id',Auth::id())

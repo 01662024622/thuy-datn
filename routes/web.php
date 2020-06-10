@@ -40,7 +40,7 @@ Route::get('admin', ['middleware' => 'admin', function () {
     //
 }]);
 
-Route::prefix("/")->middleware(['auth'])->group(function(){
+Route::prefix("/")->middleware(['auth','verified'])->group(function(){
 	Route::get('/payment', 'PaymentController@index');
 	Route::post('/payment/request', 'PaymentController@payment');
 	Route::get('/vnpay_return', 'PaymentController@vnpayreturn');

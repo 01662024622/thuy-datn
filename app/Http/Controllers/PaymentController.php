@@ -10,6 +10,7 @@ use App\category;
 use App\Order;
 use App\Bill;
 use App\User;
+use App\follow;
 use Validator;
 use Illuminate\Support\Facades\Input;
 use Webpatser\Uuid\Uuid;
@@ -132,6 +133,7 @@ class PaymentController extends Controller
 				$user->amount=$user->amount+$amount;
 				Auth::user()->amount=$user->amount;
 				$user->save();
+				
 			} else {
 				$inputData['responStatus']= "GD Khong thanh cong";
 			}
@@ -155,18 +157,31 @@ class PaymentController extends Controller
 			return response()->json([
 				'error' => 'Tài khoản của bạn không đủ tiền'], 422);
 		}
-	$date = Carbon::today()->subDays(30);
-	$order = Order::where('user_id',Auth::id())->where('book_id',$id)->where('created_at', '>=', date($date))->first();
-	if ($order==null) {
-		$data['user_id']=Auth::id();
-		$data['book_id']=$id;
-		Order::create($data);
-		$user->amount=$user->amount-10;
-		$user->save();
-		return "true";
-	}else{
-		return response()->json([
-			'error' => 'Thời gian mua sách của bạn vẫn hiệu lực'], 422);
+		$date = Carbon::today()->subDays(30);
+		$order = Order::where('user_id',Auth::id())->where('book_id',$id)->where('created_at', '>=', date($date))->first();
+		if ($order==null) {
+			$data['user_id']=Auth::id();
+			$data['book_id']=$id;
+			Order::create($data);
+			$user->amount=$user->amount-10;
+			$user->save();
+			$follow = follow::where('userid',Auth::id())->where('bookid',$id)->first();
+
+			if ($follow==null) {
+				$data['userid'] = Auth::user()->id;
+				$data['bookid'] = $id;
+				$data['createdate'] = Carbon::now();
+				follow::create($data);
+
+				$book = book::find( $id);
+				$book->followcount = $book->followcount + 1;
+				$book->save();
+			}
+			
+			return "true";
+		}else{
+			return response()->json([
+				'error' => 'Thời gian mua sách của bạn vẫn hiệu lực'], 422);
+		}
 	}
-}
 }

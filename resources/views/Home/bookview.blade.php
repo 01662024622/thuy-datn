@@ -334,7 +334,10 @@
 						@endif
 						@endguest
 					</div>
-
+					@if($order!=null)
+					<span>Truyện sẽ hết hạn vào lúc:</span> <span>{{$order->created_at->format('H:i:s d-m-Y')}}</span>
+					@endif
+					<br><br>
 					@if(count($chaps)>0)
 					<table class="table table-bordered">
 						<thead>
@@ -479,8 +482,12 @@
     				if(xhr.status==422){
     					paymentToPage()
     				}else{
+    					if(xhr.status==403){
+    						window.location.href = '/email/verify';
+    					}else{
 
-    					toastr.error(thrownError);
+    						toastr.error(thrownError);
+    					}
     				}
     			}
     		});
