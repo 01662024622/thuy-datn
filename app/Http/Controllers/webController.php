@@ -41,7 +41,7 @@ class webController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     public function searchBook(){
@@ -105,23 +105,23 @@ class webController extends Controller
                                 ->join('category', 'category.id', '=', 'tag.categoryid')
                                 ->where('tag.idbook', $id)->get();
 
-        $sql = "SELECT u.name, u.email, c.content, c.createdate  FROM book b
-                    JOIN Comment c ON b.id = c.bookid
-                    JOIN users u ON u.id = c.userid
-                    WHERE b.id = $id AND c.active = 1 ORDER BY c.createdate DESC";
+        $sql = "SELECT u.name, u.email, c.content, c.created_at  FROM book b
+                    JOIN comments c ON b.id = c.book_id
+                    JOIN users u ON u.id = c.user_id
+                    WHERE b.id = $id AND c.active = 0 ORDER BY c.created_at DESC";
         $comment = DB::select($sql);
-        
+
             $dscate = DB::table('category')->where('active', '=', 1)->get();
 
-        
+
         if(Auth::check()){
             $userid = Auth::user()->id;
             $follow = DB::table('book')->join('follow', 'follow.bookid', '=', 'book.id')
                               ->where('book.id', $id)->where('follow.userid', $userid)->count();
-            
+
         }else{
             $follow = 0;
-            
+
         }
         //dd($comment);
         return view('home.bookview')->with('comment', $comment)->with('dscate', $dscate)->with('follow', $follow)->with('chaps', $chaps)->with('book', $book)->with('tags', $tags)->with('order',$order);
@@ -164,11 +164,11 @@ class webController extends Controller
 
     public function dsTruyen_timkiem($maLoai, $name, $author){
         try{
-            
+
             $sql = "SELECT DISTINCT b.* FROM book b JOIN tag t on b.id = t.idbook";
             $sqlWhere = "";
             if(
-                $maLoai !=0 ||                
+                $maLoai !=0 ||
                 $name !="-" ||
                 $author !="-" ){
                 $sql .= " WHERE ";
@@ -190,13 +190,13 @@ class webController extends Controller
                     }
                     $sqlWhere .= "t.categoryid = $maLoai";
                 }
-                
+
                 $sql .= $sqlWhere;
             }
-            
+
             $dsbooks = DB::select($sql);
-            
-           
+
+
             $dscate = DB::table('category')->where('active', '=', 1)->get();
                 return view('Home.search1', [
                     'dscate' =>$dscate,
@@ -206,7 +206,7 @@ class webController extends Controller
                     'author' =>$author
                 ]);
         }
-        
+
         catch(QueryException $ex){
             return reponse([
                 'error' => true,

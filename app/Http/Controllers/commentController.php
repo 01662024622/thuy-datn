@@ -8,13 +8,13 @@ use App\comment;
 use App\chap;
 use App\tag;
 use App\category;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use Illuminate\Support\Facades\Input;
 use Webpatser\Uuid\Uuid;
 use DB;
 use Carbon\Carbon;
 use Session;
-use Auth;
 
 class commentController extends Controller
 {
@@ -47,14 +47,11 @@ class commentController extends Controller
     public function store(Request $request)
     {
         try{
-            $userid = Auth::user()->id;
-            $comment = new comment();
-            $comment->userid = $userid;
-            $comment->bookid = $request->bookid;
-            $comment->content = $request->content;
-            $comment->createdate = Carbon::now();
-            $comment->save();
-            return redirect(route('home.show', ['book' => $comment->bookid])); //trả về trang cần hiển thị
+            $comment['user_id'] = Auth::user()->id;
+            $comment['book_id'] = $request->bookid;
+            $comment['content'] = $request->content;
+            comment::create($comment);
+            return redirect(route('home.show', ['book' => $comment['book_id']])); //trả về trang cần hiển thị
         }
         catch(QueryException $ex){
         return reponse([

@@ -34,15 +34,21 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:composer" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:symfony" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:laravel" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
     <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6d8dc91-3ad5-4486-b0af-28d406779ee0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/commentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/commentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/webController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/webController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Home/bookview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Home/bookview.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,6 +176,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -193,6 +200,8 @@
       <updated>1617592773899</updated>
       <workItem from="1617592774934" duration="1872000" />
       <workItem from="1617615523854" duration="665000" />
+      <workItem from="1617685516413" duration="17000" />
+      <workItem from="1617785571162" duration="3811000" />
     </task>
     <servers />
   </component>
@@ -210,5 +219,11 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1617685531867">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1617685531867" />
   </component>
 </project>

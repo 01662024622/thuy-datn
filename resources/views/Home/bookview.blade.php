@@ -1,4 +1,4 @@
-	@extends('home.app') 
+	@extends('home.app')
 	@section('css')
 	<style type="text/css">
 		.comments-container {
@@ -240,7 +240,7 @@
 	@endsection
 	@section('header')
 	@include('home.miniheader')
-	@endsection  
+	@endsection
 	@section('content')
 	<div class="breadcrumbs">
 		<div class="container">
@@ -265,14 +265,14 @@
 					<img src="{{ asset('upload/image/' . $book->image)}}" alt=" " style=" width: 450px;height: 600px;" class="img-responsive"  />
 				</div>
 				<!-- <div class="col-md-7">
-					
+
 				</div> -->
 
 				<div class="col-md-7">
 					<div class="control-box p-2 breadcrumb">
 
 						<p >
-							<strong>Tác Giả:</strong> 
+							<strong>Tác Giả:</strong>
 							{{$book->author}}
 						</p>
 						<p>
@@ -281,7 +281,7 @@
 							<?php \Carbon\Carbon::setLocale('vi')  ?> {{ \Carbon\Carbon::createFromTimeStamp(strtotime($book->uploaddate  ))->diffForHumans() }}
 						</p>
 						<p>
-							<strong>Số Chap:</strong> 
+							<strong>Số Chap:</strong>
 							{{$book->chaptotal}}
 						</p>
 						<p>
@@ -330,7 +330,7 @@
 						<div class="col-md-7"><h4 style="font-family: 'Prompt', sans-serif !important">Bạn Đã Theo Dõi Truyện Này</h4>
 						</div>
 						<div class="col-md-5"></div>
-						
+
 						@endif
 						@endguest
 					</div>
@@ -346,25 +346,25 @@
 								<th>Mô Tả Chương</th>
 								<th>File</th>
 							</tr>
-						</thead>  
+						</thead>
 						<tbody>
 							@foreach($chaps as $chap)
-							<tr>  
+							<tr>
 								<td style="text-align: center;">
 									{{$chap->chapnumber}}
-								</td> 
+								</td>
 								<td>
 									{{$chap->description}}
-								</td> 
+								</td>
 								<td style="text-align: center;">
 									<audio controls>
 										<source src="{{ asset('upload/audio/' . $chap->filename)}}" type="audio/mpeg">
 											Your browser does not support the audio element.
 										</audio>
-									</td>  
+									</td>
 
 								</tr>
-								@endforeach  
+								@endforeach
 							</tbody>
 						</table>
 						@else
@@ -413,7 +413,7 @@
 										<div class="comment-box">
 											<div class="comment-head">
 												<h6 class="comment-name"><a href="http://creaticode.com/blog">{{$c->name}}</a></h6>
-												<span class="comment-name" style="float: right;"><?php \Carbon\Carbon::setLocale('vi')  ?> {{ \Carbon\Carbon::createFromTimeStamp(strtotime($c->createdate  ))->diffForHumans() }}</span>
+												<span class="comment-name" style="float: right;"><?php \Carbon\Carbon::setLocale('vi')  ?> {{ \Carbon\Carbon::createFromTimeStamp(strtotime($c->created_at  ))->diffForHumans() }}</span>
 
 											</div>
 											<div class="comment-content">
@@ -456,6 +456,8 @@
 
 			})
 		})
+
+
 		  // Delete function
 		  function paymentBook(id){
 		  	swal({
@@ -463,7 +465,7 @@
         // text: "Bạn sẽ không thể khôi phục lại bản ghi này!!",
         type: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#DD6B55",  
+        confirmButtonColor: "#DD6B55",
         cancelButtonText: "Không",
         confirmButtonText: "Có",
         // closeOnConfirm: false,
@@ -479,13 +481,17 @@
     				location.reload()
     			},
     			error: function (xhr, ajaxOptions, thrownError) {
+                    if(xhr.status==401){
+                        $('#myModal').modal('show');
+                        toastr.error('Bạn chưa đăng nhập');
+                        return
+                    }
     				if(xhr.status==422){
     					paymentToPage()
     				}else{
     					if(xhr.status==403){
     						window.location.href = '/email/verify';
     					}else{
-
     						toastr.error(thrownError);
     					}
     				}
@@ -502,7 +508,7 @@
         // text: "Bạn sẽ không thể khôi phục lại bản ghi này!!",
         type: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#DD6B55",  
+        confirmButtonColor: "#DD6B55",
         cancelButtonText: "Không",
         confirmButtonText: "Có",
         // closeOnConfirm: false,
